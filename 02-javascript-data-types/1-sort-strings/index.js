@@ -6,4 +6,15 @@
  */
 export function sortStrings(arr, param = 'asc') {
 
+  let array = arr.slice();
+  const elementsFlow = {
+    asc: 1,
+    desc: -1,
+  }
+
+  return array.sort( function(a,b){
+    return elementsFlow[param] * a.localeCompare(b, ['ru-RU', 'en-EN'], {caseFirst:'upper'})
+  })
+
 }
+
